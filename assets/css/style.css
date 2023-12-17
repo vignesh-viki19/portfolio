@@ -190,7 +190,7 @@ nav.navbar.bootsnav .navbar-toggle i{color: #d92cf9;}
     align-items: center;
     justify-content: center;
     position:relative;
-    background:url(../images/about/welcome-banner.jpg)no-repeat;
+    background:url(../images/about/1702806588087.jpg)no-repeat;
     background-size:cover;
     background-position: center;
     height:890px;
@@ -852,4 +852,44 @@ span.single-timeline-horizontal.spacial-horizontal-line {width: 88px;}
     0%   {bottom:0px;}
     100%  {bottom:7px;}
 }
+
+/*=======================TypeWrite =============== */
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
+			@import url('https://fonts.googleapis.com/css2?family=Redressed&display=swap');
+			
+			:root {
+				--comfortaa: 'Comfortaa', cursive;
+				--redressed: 'Redressed', cursive;
+			  
+			  --dark: #1c1c1c;
+			  --light: #c4c4c4;
+			  --teal: #d92cf9;
+			}
+			
+			
+			
+			.typed-text {
+			  color: var(--teal);
+			  font-family: var(--redressed);
+			}
+			
+			.cursor {
+			  display: inline-block;
+			  width: 3px;
+			  margin-left: 4px;
+			  background: var(--teal);
+			}
+			
+			.cursor.blink {
+			  animation: blink 0.8s ease-in-out infinite;
+			}
+			
+			@keyframes blink {
+			  0%, 100% {
+				background: var(--teal);
+			  }
+			  40%, 50% {
+				background: transparent;
+			  }
+			}
 /*========================Thank you=================
