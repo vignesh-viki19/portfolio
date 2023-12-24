@@ -123,6 +123,28 @@ $(document).ready(function(){
             $(".header-text a").addClass("animated fadeInDown").css({'opacity':'0'});
         });
 
+
+		$(".contact-submit").on("click",function(event){
+			event.preventDefault();
+			// alert("1");
+			var name = $("#name").val();
+			var email = $("#email").val();
+			var comment = $("#comment").val();
+
+			alert(name);
+			alert(email);
+			alert(comment);
+			$.ajax({
+				type:"POST",
+				url:"http://localhost/sms_twilio/test.php",
+				success: function(response) {
+					alert("2");
+					alert(response);
+				},
+
+			})
+		});
+
 });	
 
 
@@ -167,4 +189,4 @@ const type = () => {
 document.addEventListener("DOMContentLoaded", () => {
   type();
 })
-	
+

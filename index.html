@@ -548,7 +548,7 @@
 						<div class="col-md-offset-1 col-md-5 col-sm-6">
 							<div class="single-contact-box">
 								<div class="contact-form">
-									<form>
+									<form action="/twilioApi.php" method="POST">
 										<div class="row">
 											<div class="col-sm-6 col-xs-12">
 												<div class="form-group">
@@ -578,7 +578,8 @@
 										<div class="row">
 											<div class="col-sm-12">
 												<div class="single-contact-btn">
-													<a class="contact-btn" href="#" role="button">submit</a>
+													<!-- <a class="contact-btn contact-submit" href="javascript:void(0)" role="button" >submit</a> -->
+													<button type="submit">submit</button>
 												</div><!--/.single-single-contact-btn-->
 											</div><!--/.col-->
 										</div><!--/.row-->
@@ -682,7 +683,16 @@
         
         <!--Custom JS-->
         <script src="assets/js/custom.js"></script>
-
+		<script>
+// 			const myFunction = () => {
+// 	alert('tets');
+// // 	$.ajax({url: "twilioApi.php", success: function(result){
+// // 		alert(result);
+// //     // $("#div1").html(result);
+// //   }});
+// }
+	
+		</script>
 		
         
     </body>
