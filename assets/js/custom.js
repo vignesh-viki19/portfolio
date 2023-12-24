@@ -123,27 +123,63 @@ $(document).ready(function(){
             $(".header-text a").addClass("animated fadeInDown").css({'opacity':'0'});
         });
 
+		toastr.options = {
+			'closeButton': false,
+			'debug': false,
+			'newestOnTop': false,
+			'progressBar': true,
+			'positionClass': 'toast-top-right',
+			'preventDuplicates': false,
+			'showDuration': '1000',
+			'hideDuration': '1000',
+			'timeOut': '5000',
+			'extendedTimeOut': '1000',
+			'showEasing': 'swing',
+			'hideEasing': 'linear',
+			'showMethod': 'fadeIn',
+			'hideMethod': 'fadeOut',
+		}
 
 		$(".contact-submit").on("click",function(event){
 			event.preventDefault();
-			// alert("1");
 			var name = $("#name").val();
 			var email = $("#email").val();
 			var comment = $("#comment").val();
+			if(name == ''|| email == '' || comment ==''){
+				toastr.info('Please Fill All Fields')
+				return false
+			}
+			if (!validateEmail(email)){
+				toastr.info('Please Enter Valid Email')
+				return false
+			}
+				$.ajax({
+					type:"POST",
+					url:"https://vignesh19-portfolio.netlify.app/sms.php",
+					data:JSON.stringify({
+						name: name,
+						email: email,
+						comment: comment
+					}),
+					dataType: 'json',
+					contentType: 'application/json',
+					success: function(response) {
+						var data = response;
+						if(data.status_code = "200"){
+							toastr.success('Thank you,We will contact you as soon as.')
+						}else{
+							toastr.error('Server Error')
+						}
+						
+					},
 
-			alert(name);
-			alert(email);
-			alert(comment);
-			$.ajax({
-				type:"POST",
-				url:"http://localhost/sms_twilio/test.php",
-				success: function(response) {
-					alert("2");
-					alert(response);
-				},
-
-			})
+				})
 		});
+
+		function validateEmail(email) {
+			const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+			return regex.test(email);
+		}
 
 });	
 
